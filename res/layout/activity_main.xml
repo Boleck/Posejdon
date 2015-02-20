@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pl.boleck.posejdoh.MainActivity"
+    android:orientation="vertical" >
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1" 
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp" 
+        android:layout_weight="1"
+        android:text="Serwis"
+        android:id="@+id/Serwis"
+        android:textSize="80px"
+        android:gravity="center"
+        android:background="#01579b"
+        android:textColor="#fff"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" 
+        android:layout_weight="1"
+        android:text="Komis"
+        android:id="@+id/Komis"
+        android:textSize="80px"
+        android:gravity="center"
+        android:background="#01579b"
+        android:textColor="#fff"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:orientation="horizontal" >
+        <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp" 
+        android:layout_weight="1"
+        android:text="Nowe"
+        android:id="@+id/Nowe"
+        android:textSize="80px"
+        android:gravity="center"
+        android:background="#01579b"
+        android:textColor="#fff"/>
+            <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" 
+        android:layout_weight="1"
+        android:text="Inne"
+        android:id="@+id/Inne"
+        android:textSize="80px"
+        android:gravity="center"
+        android:background="#01579b"
+        android:textColor="#fff"
+        />
+</LinearLayout>
+
+</LinearLayout>
