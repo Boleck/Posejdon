@@ -9,5 +9,6 @@
     <string name="no">Nie</string>
     <string name="really_quit">Czy napewno checesz wyjść?</string>
     <string name="quit">Zamykanie aplikacji</string>
+    <string name="title_activity_zlecenia_dane">ZleceniaDane</string>
 
 </resources>
