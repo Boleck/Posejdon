@@ -33,6 +33,7 @@ public class DoneActivity extends Activity {
         SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
         String time = SDF.format(new Date());
 		Firebase.setAndroidContext(this);
+		
   		myFirebaseRef = new Firebase("https://myjnia.firebaseio.com/Zlecenia/"+time.toString());
   		newref = myFirebaseRef.push();
 		BtDone = (TextView)findViewById(R.id.BtDone);
