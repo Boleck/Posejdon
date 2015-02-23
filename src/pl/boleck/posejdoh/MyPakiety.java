@@ -53,9 +53,12 @@ public class MyPakiety extends Activity {
 	    		Toast.makeText(getApplicationContext(),
                "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
                .show();
+	    		view.setSelected(true);
 			
 		}
+	        
 	});
+	  
 	    
 
 	}
