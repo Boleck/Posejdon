@@ -36,6 +36,10 @@
             android:name=".DodatkiActivity"
             android:label="@string/title_activity_dodatki" >
         </activity>
+        <activity
+            android:name=".DoneActivity"
+            android:label="@string/title_activity_done" >
+        </activity>
     </application>
 
 </manifest>

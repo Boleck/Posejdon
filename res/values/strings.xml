@@ -11,5 +11,6 @@
     <string name="quit">Zamykanie aplikacji</string>
     <string name="title_activity_zlecenia_dane">ZleceniaDane</string>
     <string name="title_activity_dodatki">DodatkiActivity</string>
+    <string name="title_activity_done">DoneActivity</string>
 
 </resources>
