@@ -51,15 +51,10 @@ public class MainActivity extends Activity {
       			//pobieranie danych na temat pakietu
 
       				Map<String, Object> newPost = (Map<String, Object>) snapshot.getValue();
-      				 
-      				
-      				//arr = newPost.keySet().toArray();
-      				//stringArray = Arrays.copyOf(arr, arr.length, String[].class);
-      				
+      				 	
       				DataHolder.setNewPost(newPost);
-      				System.out.println(DataHolder.newPost);
+      				//Zamykanie dialogu pobieranie jsona
       				pDialog.dismiss();
-      				//ArrayList<String> list = (new Jsontoarray()).Convert(jsonObject);
 
       				
 
@@ -148,7 +143,7 @@ public class MainActivity extends Activity {
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-    	// Zabespieczenie przed przypadkowym zamknieciem aplikacji
+    	// Zabezpieczenie przed przypadkowym zamknieciem aplikacji
         if(keyCode == KeyEvent.KEYCODE_BACK) {
             Builder alert = new AlertDialog.Builder(this)
             .setIcon(android.R.drawable.ic_dialog_alert)

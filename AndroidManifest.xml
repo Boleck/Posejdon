@@ -32,6 +32,10 @@
             android:name=".ZleceniaDane"
             android:label="@string/title_activity_zlecenia_dane" >
         </activity>
+        <activity
+            android:name=".DodatkiActivity"
+            android:label="@string/title_activity_dodatki" >
+        </activity>
     </application>
 
 </manifest>

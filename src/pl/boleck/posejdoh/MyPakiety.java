@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MyPakiety extends Activity {
@@ -21,8 +24,8 @@ public class MyPakiety extends Activity {
 
 	private Object[] arr;
 	private String[] stringArray;
-	static final String[] PAKIETS = new String[] { "Pakiet1", "Pakiet2", "Pakiet3"};
 	private Map<String, Map<String, Object>> Pakiet;
+
 
 
 	@Override
@@ -31,7 +34,7 @@ public class MyPakiety extends Activity {
 		setContentView(R.layout.activity_my_pakiety);
 		//Getting Extras
 		extras = getIntent().getExtras().getString("pakiet");
-		
+		DataHolder.setRodzaj(extras);
 		Pakiet = (Map<String, Map<String, Object>>) DataHolder.newPost.get(extras.toString());
 		
 		arr = Pakiet.get("Pakiety").keySet().toArray();
@@ -41,6 +44,7 @@ public class MyPakiety extends Activity {
 		//getActionBar().hide();
 		//ListView
         listView = (ListView) findViewById(R.id.list);
+       
 	    ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,R.layout.list_fruit, R.id.text1, stringArray);
 	    listView.setAdapter(listAdapter);
        
@@ -48,13 +52,15 @@ public class MyPakiety extends Activity {
 
 	    	@Override
 	    	public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-	    		int itemPosition     = position;
 	    		String  itemValue    = (String) listView.getItemAtPosition(position);
-	    		Toast.makeText(getApplicationContext(),
-               "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-               .show();
+	    		DataHolder.setPakiet(itemValue);
 	    		view.setSelected(true);
-			
+	    		//Log.d("PM", DataHolder.PAKIET);
+	    		
+				Intent intent = new Intent(
+						MyPakiety.this,
+						DodatkiActivity.class);
+			 		startActivity(intent);
 		}
 	        
 	});
