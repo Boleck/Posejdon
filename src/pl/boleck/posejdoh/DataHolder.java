@@ -15,4 +15,10 @@ public class DataHolder {
 	public static void setRodzaj(String rODZAJ) {
 		RODZAJ = rODZAJ;
 	}
+	public static String getPAKIET() {
+		return PAKIET;
+	}
+	public static String getRODZAJ() {
+		return RODZAJ;
+	}
 }

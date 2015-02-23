@@ -1,16 +1,66 @@
 package pl.boleck.posejdoh;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.firebase.client.Firebase;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class DoneActivity extends Activity {
+
+	private TextView BtDone;
+	private EditText Reje;
+	private EditText Prac;
+	private EditText Kome;
+	private TextView Pods;
+	private Firebase myFirebaseRef;
+	private Firebase newref;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_done);
+        SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
+        String time = SDF.format(new Date());
+		Firebase.setAndroidContext(this);
+  		myFirebaseRef = new Firebase("https://myjnia.firebaseio.com/Zlecenia/"+time.toString());
+  		newref = myFirebaseRef.push();
+		BtDone = (TextView)findViewById(R.id.BtDone);
+		Reje = (EditText)findViewById(R.id.Rejestracja);
+		Prac = (EditText)findViewById(R.id.Pracownik);
+		Kome = (EditText)findViewById(R.id.Komentarz);
+		Pods = (TextView)findViewById(R.id.Podsumowanie);
+		BtDone.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Add some data to the new location
+				Map<String, String> post1 = new HashMap<String, String>();
+				
+				post1.put("Rodzaj",DataHolder.getRODZAJ());
+				post1.put("Pakiet",DataHolder.getPAKIET());
+				post1.put("Rejestracja",Reje.getText().toString());
+				post1.put("Pracownik",Prac.getText().toString());
+				post1.put("Komentarz",Kome.getText().toString());
+				
+				
+				newref.setValue(post1);
+				
+				
+				
+			}
+		});
+		
 	}
 
 	@Override
