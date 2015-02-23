@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
       				pDialog.dismiss();
       				//ArrayList<String> list = (new Jsontoarray()).Convert(jsonObject);
 
-      				System.out.println("fak de łot?");
+      				
 
       			}
 				
