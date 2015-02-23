@@ -52,8 +52,6 @@ public class DoneActivity extends Activity {
 				post1.put("Rejestracja",Reje.getText().toString());
 				post1.put("Pracownik",Prac.getText().toString());
 				post1.put("Komentarz",Kome.getText().toString());
-				
-				
 				newref.setValue(post1);
 				
 				
