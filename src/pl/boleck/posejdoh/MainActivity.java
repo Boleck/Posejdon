@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
 		pDialog.show();
       //Firebase
       		Firebase.setAndroidContext(this);
-      		Firebase myFirebaseRef = new Firebase("https://myjnia.firebaseio.com/Rodzaj/");
+      		Firebase myFirebaseRef = new Firebase("https://myjnia.firebaseio.com/");
       	    myFirebaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
       			
       			private Object stringArray;
@@ -53,13 +53,14 @@ public class MainActivity extends Activity {
       			public void onDataChange(DataSnapshot snapshot) {
       			//pobieranie danych na temat pakietu
 
-      				Map<String, Object> newPost = (Map<String, Object>) snapshot.getValue();
-      				 	
-      				DataHolder.setNewPost(newPost);
+      				Map<String, Object> rodzaje = (Map<String, Object>) snapshot.child("Rodzaj").getValue();
+      				Map<String, Object> dodatki = (Map<String, Object>) snapshot.child("Dodatki").getValue();
+      				DataHolder.setRodzaje(rodzaje);
+      				DataHolder.setDodatki(dodatki);
+      				Log.d("PB", DataHolder.rodzaje.toString());
+      				Log.d("PB", DataHolder.dodatki.toString());
       				//Zamykanie dialogu pobieranie jsona
       				pDialog.dismiss();
-
-      				
 
       			}
 				

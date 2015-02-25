@@ -35,7 +35,7 @@ public class MyPakiety extends Activity {
 		//Getting Extras
 		extras = getIntent().getExtras().getString("pakiet");
 		DataHolder.setRodzaj(extras);
-		Pakiet = (Map<String, Map<String, Object>>) DataHolder.newPost.get(extras.toString());
+		Pakiet = (Map<String, Map<String, Object>>) DataHolder.rodzaje.get(extras.toString());
 		
 		arr = Pakiet.get("Pakiety").keySet().toArray();
 		stringArray = Arrays.copyOf(arr, arr.length, String[].class);

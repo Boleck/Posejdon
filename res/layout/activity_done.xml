@@ -26,8 +26,7 @@
 		    android:layout_height="wrap_content"
 		    android:hint="@string/Rejestracja"
 		    android:inputType="text" />
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content">
+		
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -37,7 +36,7 @@
 		    android:id="@+id/Pracownik"
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
-		    android:hint="@string/Rejestracja"
+		    android:hint="Pracownik"
 		    android:inputType="text" />
 	    <TextView
 	        android:layout_width="wrap_content"

@@ -32,7 +32,7 @@
         android:layout_height="150dp"
         android:gravity="center"
         android:textSize="80sp"
-        android:text="Pomiń"
+        android:text="Dalej"
         android:id="@+id/BtNextDA"/>
 
 </LinearLayout>

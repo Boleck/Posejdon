@@ -6,16 +6,20 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class DodatkiActivity extends Activity {
 
 	private TextView BtNextDA;
+	private ListView listView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_dodatki);
+		listView = (ListView) findViewById(R.id.list2);
 		BtNextDA = (TextView) findViewById(R.id.BtNextDA);
 		BtNextDA.setOnClickListener(new View.OnClickListener() {
 			

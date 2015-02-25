@@ -41,22 +41,20 @@ public class DoneActivity extends Activity {
 		Prac = (EditText)findViewById(R.id.Pracownik);
 		Kome = (EditText)findViewById(R.id.Komentarz);
 		Pods = (TextView)findViewById(R.id.Podsumowanie);
+		Pods.setText("Podsumowanie: \nRodzaj: "+ DataHolder.getRODZAJ() + "\nPakiet: " + DataHolder.getPAKIET());
 		BtDone.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// Add some data to the new location
 				Map<String, String> post1 = new HashMap<String, String>();
-				
 				post1.put("Rodzaj",DataHolder.getRODZAJ());
 				post1.put("Pakiet",DataHolder.getPAKIET());
 				post1.put("Rejestracja",Reje.getText().toString());
 				post1.put("Pracownik",Prac.getText().toString());
 				post1.put("Komentarz",Kome.getText().toString());
 				newref.setValue(post1);
-				
-				
-				
+				// TODO Wysyłanie danych do SQLite
 			}
 		});
 		
