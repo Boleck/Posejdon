@@ -5,6 +5,7 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -47,20 +48,32 @@ public class MyPakiety extends Activity {
        
 	    ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,R.layout.list_fruit, R.id.text1, stringArray);
 	    listView.setAdapter(listAdapter);
-       
+	    listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 	    listView.setOnItemClickListener(new OnItemClickListener() {
 
 	    	@Override
 	    	public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
 	    		String  itemValue    = (String) listView.getItemAtPosition(position);
 	    		DataHolder.setPakiet(itemValue);
-	    		view.setSelected(true);
+	    		Log.d("PM", listView.isItemChecked(position) + "");
+	    	    if (listView.isItemChecked(position)) {
+	    	        listView.setItemChecked(position,true);
+	    	        view.setBackgroundColor(getResources().getColor(R.color.pressed_color));
+	    	        //dodawanie do listy zaznaczonych w dataholderze
+	    	    } else {
+	    	        listView.setItemChecked(position,false);
+	    	        view.setBackgroundColor(getResources().getColor(R.color.default_color));
+	    	        //usuwanie z listy zaznaczonych w dataholderze
+	    	    }
+	    		
+	    		//view.setSelected(true);
 	    		//Log.d("PM", DataHolder.PAKIET);
 	    		
-				Intent intent = new Intent(
+			/*	Intent intent = new Intent(
 						MyPakiety.this,
 						DodatkiActivity.class);
-			 		startActivity(intent);
+			 		startActivity(intent);*/
+	    		
 		}
 	        
 	});
@@ -68,7 +81,7 @@ public class MyPakiety extends Activity {
 	    
 
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

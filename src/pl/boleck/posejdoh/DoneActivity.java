@@ -46,7 +46,6 @@ public class DoneActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// Add some data to the new location
 				Map<String, String> post1 = new HashMap<String, String>();
 				post1.put("Rodzaj",DataHolder.getRODZAJ());
 				post1.put("Pakiet",DataHolder.getPAKIET());

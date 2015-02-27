@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
       			
       			private Object stringArray;
 				private Object[] arr;
+				private Object[] z;
+				private Object[] e;
 				
 
 				@Override
@@ -55,10 +57,21 @@ public class MainActivity extends Activity {
 
       				Map<String, Object> rodzaje = (Map<String, Object>) snapshot.child("Rodzaj").getValue();
       				Map<String, Object> dodatki = (Map<String, Object>) snapshot.child("Dodatki").getValue();
+      				 
+      				Map<String, Object> value = (Map<String, Object>)snapshot.getValue();
+      				z = dodatki.keySet().toArray();
+    				String[] rodz = new String[z.length];
+      				for (int i = 0; i < z.length; i++) {
+      					Map<String, String> e =  (Map<String, String>) dodatki.get(z[i]);
+      					
+      					rodz[i] = e.get("Nazwa");
+      					
+					}
+      				
       				DataHolder.setRodzaje(rodzaje);
-      				DataHolder.setDodatki(dodatki);
-      				Log.d("PB", DataHolder.rodzaje.toString());
-      				Log.d("PB", DataHolder.dodatki.toString());
+      				DataHolder.setDodatki(rodz);
+      				//Log.d("PB", DataHolder.rodzaje.toString());
+      				//Log.d("PB", DataHolder.dodatki.toString());
       				//Zamykanie dialogu pobieranie jsona
       				pDialog.dismiss();
 

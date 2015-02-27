@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class DataHolder {
 	static Map<String, Object> rodzaje;
-	static Map<String, Object> dodatki;
+	static String[] dodatki;
 	static String RODZAJ;
 	static String PAKIET;
 	public static void setPakiet(String pAKIET) {
@@ -23,8 +23,12 @@ public class DataHolder {
 		DataHolder.rodzaje = rodzaje;
 		
 	}
-	public static void setDodatki(Map<String, Object> dodatki) {
-		DataHolder.dodatki = dodatki;
+	public static void setDodatki(String[] rodz) {
+		DataHolder.dodatki = rodz;
 		
+	}
+	public static void wyczysc(){
+		setPakiet(null);
+		setRodzaj(null);
 	}
 }
