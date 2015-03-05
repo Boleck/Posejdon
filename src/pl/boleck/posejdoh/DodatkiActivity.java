@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,16 +39,38 @@ public class DodatkiActivity extends Activity {
 		//stringArray = Arrays.copyOf(arr, arr.length, String[].class);
 		
 		listView = (ListView) findViewById(R.id.list2);
-		
+		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,R.layout.list_fruit, R.id.text1, Dodatek);
 	    listView.setAdapter(listAdapter);
-	    
+	    listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				String  itemValue    = (String) listView.getItemAtPosition(position);
+				//Log.d("PM", listView.isItemChecked(position) + "");
+	    	    if (listView.isItemChecked(position)) {
+	    	        listView.setItemChecked(position,true);
+	    	        view.setBackgroundColor(getResources().getColor(R.color.pressed_color));
+	    	        //dodawanie do listy zaznaczonych w dataholderze
+	    	        DataHolder.dodajDodatekDoWyslania(itemValue);
+	    	    } else {
+	    	        listView.setItemChecked(position,false);
+	    	        view.setBackgroundColor(getResources().getColor(R.color.default_color));
+	    	        //usuwanie z listy zaznaczonych w dataholderze
+	    	        DataHolder.usunDodatekDoWyslania(itemValue);
+	    	    }
+	    	    Log.d("PM", DataHolder.dodatkisend.toString());
+				
+			}
+		});
 		BtNextDA = (TextView) findViewById(R.id.BtNextDA);
 		BtNextDA.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Przejdz do nastepnej aktywnosci
+				
 		 		Intent intent = new Intent(
 				 		DodatkiActivity.this,
 				 		DoneActivity.class);

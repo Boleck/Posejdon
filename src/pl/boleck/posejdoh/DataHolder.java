@@ -1,5 +1,6 @@
 package pl.boleck.posejdoh;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class DataHolder {
@@ -7,6 +8,7 @@ public class DataHolder {
 	static String[] dodatki;
 	static String RODZAJ;
 	static String PAKIET;
+	static ArrayList<String> dodatkisend = new ArrayList<String>();
 	public static void setPakiet(String pAKIET) {
 		PAKIET = pAKIET;
 	}
@@ -30,5 +32,12 @@ public class DataHolder {
 	public static void wyczysc(){
 		setPakiet(null);
 		setRodzaj(null);
+	}
+	public static void dodajDodatekDoWyslania(String some){
+		dodatkisend.add(some);
+	}
+	
+	public static void usunDodatekDoWyslania(String some){
+		dodatkisend.remove(some);
 	}
 }
